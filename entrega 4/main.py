@@ -3,12 +3,18 @@ dia = int(input("Ingrese el dia:"))
 mes = int(input("Ingrese el mes:"))
 anio = int(input("Ingrese el anio:"))
 
-if (dia > 31 or dia < 1) or (mes > 12 or mes < 1) or (anio > 2022 or anio < 1):
+if (dia > 31 or dia < 1) or (mes > 12 or mes < 1) or (anio > 2022 or anio < 1) or (mes == 2 and dia > 29):
     print("Fecha invalida.")
 else:
     print("Fecha valida.")
 
 # EJERCICIO 2
+segundos=int(input("Ingrese el tiempo en segundos:"))
+horas = segundos//3600
+sobrante1 = segundos%3600
+minutos = sobrante1//60
+sobrante2 = sobrante1%60
+print(f"{horas} : {minutos} : {sobrante2}")
 
 
 # EJERCICIO 3
