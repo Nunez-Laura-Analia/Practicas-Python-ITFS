@@ -29,15 +29,12 @@ minutos = sobrante1//60
 sobrante2 = sobrante1 % 60
 print(f"{horas} : {minutos} : {sobrante2}")
 
-
 # EJERCICIO 3
 for i in range(0, 7):
     for e in range(0, i + 1):
         print(f"| {i} | {e} |")
 
 # EJERCICIO 4
-
-
 def empaquetado(pesoPorPaquete):
     pesoAcumulado = 0
     while pesoAcumulado < pesoPorPaquete:
@@ -46,13 +43,10 @@ def empaquetado(pesoPorPaquete):
             cantidad_a_sacar = pesoAcumulado - pesoPorPaquete
     return f"Debe cambiarse el paquete. Se superaron los {pesoPorPaquete}. Debe sacar {cantidad_a_sacar} y ponerlos en un nuevo paquete."
 
-
 pesoPorPaquete = int(input("Ingrese el peso que debe tener el paquete: "))
 print(empaquetado(pesoPorPaquete))
 
 # EJERCICIO 5
-
-
 def empaquetado(capacidadDelSilo):
     cantidadDeHarinaInicial = int(
         input("Ingrese la cantidad de harina inicial dentro del silo: "))
@@ -71,7 +65,6 @@ def empaquetado(capacidadDelSilo):
             else:
                 break
         return "Ya no hay cantidad de harina sufucuente para una nueva preparacion."
-
 
 capacidadDelSilo = int(input("Ingrese la capacidad del silo: "))
 print(empaquetado(capacidadDelSilo))
