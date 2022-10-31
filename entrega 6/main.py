@@ -1,24 +1,23 @@
 #EJERCICIO 1
 from math import sqrt
+def calcular_ditancia():
+    x1 = float(input("Ingrese los valores del punto x1: "))
+    x2 = float(input("Ingrese los valores del punto x2: "))
+    y1 = float(input("Ingrese los valores del punto y1: "))
+    y2 = float(input("Ingrese los valores del punto y2: "))
+    punto1 = x2 - x1
+    punto2 = y2 - y1
+    distacia = sqrt((punto1)**2 + (punto2)**2)
+    return distacia
 
-x1 = float(input("Ingrese los valores del punto x1: "))
-x2 = float(input("Ingrese los valores del punto x2: "))
-
-y1 = float(input("Ingrese los valores del punto y1: "))
-y2 = float(input("Ingrese los valores del punto y2: "))
-
-punto1 = x2 - x1
-punto2 = y2 - y1
-distacia = sqrt((punto1)**2 + (punto2)**2)
-print("La distacia entre los 2 puntos es: ", distacia)
+print(calcular_ditancia())
 
 #EJERCICIO 2
 def volumen_y_superficie (alto, largo, profundidad):
         volumen = alto * largo * profundidad
         volumen_en_litros = volumen / 1000
-        superficie = alto + largo + profundidad
-        resultado = f"El volumen en litros es de {volumen_en_litros} y la superfice de {superficie}"
-        return resultado
+        superficie = 2 * largo * profundidad + 2 * largo * alto + 2 * profundidad * alto
+        return f"{volumen_en_litros}lts. , {superficie} cm2."
 
 alto = float(input("Ingrese el alto de la caja en centimetros: "))
 largo = float(input("Ingrese el largo de la caja en centimetros: "))
@@ -65,7 +64,7 @@ mensaje_desencriptado = decodificar(abecedario, clave, mensaje_encriptado)
 print(mensaje_encriptado)
 print(mensaje_desencriptado)
 
-#EJERCICIO 4
+# EJERCICIO 4
 def nombres_y_apellido(primer_nombre, segundo_nombre, apellido):
     if len(segundo_nombre) >= 1:
         segundo_nombre = list(segundo_nombre)
@@ -75,13 +74,13 @@ def nombres_y_apellido(primer_nombre, segundo_nombre, apellido):
     x = []
     x.extend([primer_nombre, segundo_nombre, apellido])
     nombre_completo = " ".join(x)
-    return nombre_completo
+    return nombre_completo.title()
 
 primer_nombre = input("Ingrese su primer nombre: ")
 segundo_nombre = input("Ingrese su segundo nombre: ")
 apellido = input("Ingrese su apellido: ")
-print(nombres_y_apellido(primer_nombre.capitalize(),
-      segundo_nombre.capitalize(), apellido.capitalize()))
+print(nombres_y_apellido(primer_nombre,
+      segundo_nombre, apellido))
 
 #EJERCICIO 5
 def cantidad_de_rollos(alto, ancho, largo_rollo, ancho_rollo):
@@ -96,4 +95,3 @@ largo_rollo = float(input("Ingrese el largo del rollo: "))
 ancho_rollo = float(input("Ingrese el ancho del rollo: "))
 
 print(f"Los rollos necesarios son : {cantidad_de_rollos(alto, ancho, largo_rollo, ancho_rollo)}")
-
