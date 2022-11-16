@@ -13,8 +13,8 @@ print(lista)
 
 #EJERCICIO 3
 tablero =[  "-", "-", "-",
-             "-", "-", "-",
-              "-", "-", "-"]
+            "-", "-", "-",
+            "-", "-", "-"]
 def ver_tablero():
     print("\n")
     print(tablero[0] + " | " + tablero[1] + " | " +  tablero[2]  +"       1 | 2 | 3")
@@ -25,23 +25,23 @@ def ver_tablero():
 def jugada(valor):
     anoto = False
     while anoto==False:
-        posicion = int(input("Elegi una posicion del 1 al 9: "))
+        posicion = int(input("Elegí una posicion del 1 al 9: "))
         posicion -= 1
         if tablero[posicion] == "-":
             anoto = True
         else:
-            print("Esa posicion ya esta ocupada")
+            print("Lo siento, esta posicion ya esta ocupada. ¡Elegí otra!")
     tablero[posicion] = valor
     ver_tablero()
     
 def jugar():
-    print("Empieza el juego!")
+    print("¡Que empiece el juego!")
     ver_tablero()
     for i in range(4):
-        print("Turno del jugador 1 - X")
+        print("Es el turno del jugador 1 - X")
         valor="X"
         jugada(valor)
-        print("Turno del jugador 2 - O")
+        print("Es el turno del jugador 2 - O")
         valor="O"
         jugada(valor)
     print("Turno del jugador 2 - X")
@@ -51,32 +51,32 @@ jugar()
 
 #EJERCICIO 4
 tablero =[  "-", "-", "-",
-             "-", "-", "-",
-              "-", "-", "-"]
+            "-", "-", "-",
+            "-", "-", "-"]
 ganador = None
 def jugar():
     global ganador
-    print("Empieza el juego!")
+    print("Que empiece el juego!")
     ver_tablero()
     for i in range(5):
-        print("Turno del jugador 1 - X")
+        print("Es el turno del jugador 1 - X")
         valor="X"
         jugada(valor)
         huboGanador()
         if ganador != "X" and i < 4 :
             for j in range(3):
-                print("Turno del jugador 2 - O")
+                print("Es el turno del jugador 2 - O")
                 valor="O"
                 jugada(valor)
                 huboGanador()
                 if ganador == "O":
-                    print("Felicadadesss!!! Jugador 2 GANADOR del TA-TE-TI")
+                    print("¡Felicadades! El ganador del TA-TE-TI es el jugador número 2")
                 break
         elif ganador=="X":
-            print("Felicadadesss!!! Jugador 1 GANADOR del TA-TE-TI")
+            print("¡Felicadades! El ganador del TA-TE-TI es el jugador número 1")
             break
         else:
-            print("Empataron del TA-TE-TI")
+            print("¡Ambos jugadores empataron!")
 def huboGanador():
     global ganador
     controlLinea()
@@ -107,12 +107,12 @@ def controlDiagonal():
 def jugada(valor):
     anoto = False
     while anoto==False:
-        posicion = int(input("Elegi una posicion del 1 al 9: "))
+        posicion = int(input("Elegí una posicion del 1 al 9: "))
         posicion -= 1
         if tablero[posicion] == "-":
             anoto = True
         else:
-            print("Esa posicion ya esta ocupada")
+            print("Lo siento, esta posicion ya esta ocupada. ¡Elegí otra!")
     tablero[posicion] = valor
     ver_tablero()
 def ver_tablero():
@@ -122,3 +122,28 @@ def ver_tablero():
     print(tablero[6] + " | " + tablero[7] + " | " +  tablero[8]  +"       7 | 8 | 9")
     print("\n")
 jugar()
+
+#EJERCICIO 5
+n = int(input("Ingrese el número de vértices del polígono: "))
+
+x = []
+y = []
+
+for i in range(n):
+    coordenada_x = int(input(f"Ingrese el valor de la coordenada x{i}: "))
+    coordenada_y = int(input(f"Ingrese el valor de la coordenada y{i}: "))
+    x.append(coordenada_x)
+    y.append(coordenada_y)
+
+x.append(x[0])
+y.append(y[0])
+
+vertices = list(zip(x, y))
+print(vertices)
+
+for i in range(n):
+    suma = (x[i] * (y[i+1] - y[i-1]))
+
+Área_Polígono = (1/2)*abs(suma)
+
+print("Área del polígono=:", Área_Polígono, "U^2")
