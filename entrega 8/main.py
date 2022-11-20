@@ -1,15 +1,21 @@
 #EJERCICIO 1
 import numpy as np
 
+def normalizar(v):
+    normalized_v = v/np.linalg.norm(v)
+    return normalized_v
+
 v = np.random.rand(10)
-normalized_v = v/np.linalg.norm(v)
-print(normalized_v)
+print(normalizar(v))
 
 #EJERCICIO 2
+def sin_repetir(lista):
+    conjunto = set(lista)
+    lista_nueva = list (conjunto)
+    return lista_nueva
+
 lista = [1,2,5,"hola", "programacion", 1, 2, "hola"]
-conjunto = set(lista)
-lista = list (conjunto)
-print(lista)
+sin_repetir(lista)
 
 #EJERCICIO 3
 tablero =[  "-", "-", "-",
@@ -17,9 +23,9 @@ tablero =[  "-", "-", "-",
             "-", "-", "-"]
 def ver_tablero():
     print("\n")
-    print(tablero[0] + " | " + tablero[1] + " | " +  tablero[2]  +"       1 | 2 | 3")
-    print(tablero[3] + " | " + tablero[4] + " | " +  tablero[5]  +"       4 | 5 | 6")
-    print(tablero[6] + " | " + tablero[7] + " | " +  tablero[8]  +"       7 | 8 | 9")
+    print(tablero[0] + " _|_ " + tablero[1] + " _|_ " +  tablero[2]  +"       1 _|_ 2 _|_ 3")
+    print(tablero[3] + " _|_ " + tablero[4] + " _|_ " +  tablero[5]  +"       4 _|_ 5 _|_ 6")
+    print(tablero[6] + "  |  " + tablero[7] + "  |  " +  tablero[8]  +"       7  |  8  |  9")
     print("\n")
 
 def jugada(valor):
@@ -47,7 +53,7 @@ def jugar():
     print("Turno del jugador 2 - X")
     valor="X"
     jugada(valor)        
-jugar()        
+jugar()         
 
 #EJERCICIO 4
 tablero =[  "-", "-", "-",
@@ -117,33 +123,32 @@ def jugada(valor):
     ver_tablero()
 def ver_tablero():
     print("\n")
-    print(tablero[0] + " | " + tablero[1] + " | " +  tablero[2]  +"       1 | 2 | 3")
-    print(tablero[3] + " | " + tablero[4] + " | " +  tablero[5]  +"       4 | 5 | 6")
-    print(tablero[6] + " | " + tablero[7] + " | " +  tablero[8]  +"       7 | 8 | 9")
+    print(tablero[0] + " _|_ " + tablero[1] + " _|_ " +  tablero[2]  +"       1 _|_ 2 _|_ 3")
+    print(tablero[3] + " _|_ " + tablero[4] + " _|_ " +  tablero[5]  +"       4 _|_ 5 _|_ 6")
+    print(tablero[6] + "  |  " + tablero[7] + "  |  " +  tablero[8]  +"       7  |  8  |  9")
     print("\n")
 jugar()
 
 #EJERCICIO 5
+def gauss(n):   
+    x = []
+    y = []
+    for i in range(n):
+        coordenada_x = int(input(f"Ingrese el valor de la coordenada x{i}: "))
+        coordenada_y = int(input(f"Ingrese el valor de la coordenada y{i}: "))
+        x.append(coordenada_x)
+        y.append(coordenada_y)
+    x.append(x[0])
+    y.append(y[0])
+
+    vertices = list(zip(x, y))
+    print(vertices)
+
+    for i in range(n):
+        suma = (x[i] * (y[i+1] - y[i-1]))
+
+    Área_Polígono = (1/2)*abs(suma)
+    return "Área del polígono=:", Área_Polígono, "U^2"
+
 n = int(input("Ingrese el número de vértices del polígono: "))
-
-x = []
-y = []
-
-for i in range(n):
-    coordenada_x = int(input(f"Ingrese el valor de la coordenada x{i}: "))
-    coordenada_y = int(input(f"Ingrese el valor de la coordenada y{i}: "))
-    x.append(coordenada_x)
-    y.append(coordenada_y)
-
-x.append(x[0])
-y.append(y[0])
-
-vertices = list(zip(x, y))
-print(vertices)
-
-for i in range(n):
-    suma = (x[i] * (y[i+1] - y[i-1]))
-
-Área_Polígono = (1/2)*abs(suma)
-
-print("Área del polígono=:", Área_Polígono, "U^2")
+gauss(n)
